@@ -1,0 +1,5 @@
+{
+  "extends": "../psyflow-web/tsconfig.json",
+  "compilerOptions": { "types": [] },
+  "include": ["main.ts", "src/**/*.ts"]
+}

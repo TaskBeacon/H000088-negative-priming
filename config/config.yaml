@@ -1,0 +1,112 @@
+subinfo_fields:
+  - name: subject_id
+    type: int
+    constraints: {min: 101, max: 999, digits: 3}
+subinfo_mapping:
+  subject_id: 被试编号
+  Participant Information: 被试信息
+  registration_failed: 登记失败
+  registration_successful: 登记成功
+  invalid_input: "{field} 的值无效"
+
+window:
+  size: [1280, 800]
+  units: deg
+  screen: 0
+  bg_color: black
+  fullscreen: false
+  monitor_width_cm: 35.5
+  monitor_distance_cm: 57
+
+task:
+  task_name: Negative Priming
+  save_path: ./outputs/web
+  language: Chinese
+  voice_name: zh-CN-YunyangNeural
+  voice_enabled: false
+  delta: 0.0
+  total_blocks: 4
+  total_trials: 168
+  trial_per_block: 42
+  trials_per_block: 42
+  practice_trials: 36
+  conditions: [no_distractor, control, negative_priming]
+  shape_ids: [shape_1, shape_2, shape_3, shape_4, shape_5, shape_6, shape_7, shape_8]
+  response_keys: {different: f, same: j}
+  colors: {target: "#00C853", distractor: "#EF4444", reference: "#FFFFFF"}
+  layout:
+    left_pos: [-3.8, 0.0]
+    right_pos: [3.8, 0.0]
+    shape_scale: 1.8
+  shape_specs:
+    shape_1: [[-0.95, -0.20], [-0.62, -0.92], [0.02, -0.66], [0.72, -0.98], [0.94, -0.28], [0.46, 0.08], [0.78, 0.78], [0.08, 0.92], [-0.42, 0.46], [-0.92, 0.70]]
+    shape_2: [[-0.92, -0.68], [-0.24, -0.92], [0.08, -0.42], [0.66, -0.82], [0.94, -0.12], [0.52, 0.40], [0.88, 0.88], [0.08, 0.68], [-0.58, 0.94], [-0.44, 0.22], [-0.96, 0.06]]
+    shape_3: [[-0.88, -0.76], [-0.18, -0.54], [0.30, -0.94], [0.88, -0.48], [0.54, 0.08], [0.96, 0.58], [0.32, 0.90], [-0.12, 0.44], [-0.76, 0.84], [-0.94, 0.14], [-0.42, -0.12]]
+    shape_4: [[-0.94, -0.16], [-0.54, -0.88], [0.10, -0.44], [0.58, -0.92], [0.96, -0.24], [0.48, 0.20], [0.72, 0.88], [0.02, 0.62], [-0.64, 0.92], [-0.46, 0.22], [-0.92, 0.52]]
+    shape_5: [[-0.90, -0.82], [-0.38, -0.34], [0.12, -0.86], [0.86, -0.60], [0.64, 0.02], [0.94, 0.66], [0.24, 0.52], [-0.18, 0.96], [-0.80, 0.66], [-0.58, 0.08], [-0.98, -0.18]]
+    shape_6: [[-0.96, -0.44], [-0.30, -0.92], [0.20, -0.48], [0.82, -0.78], [0.94, -0.04], [0.34, 0.18], [0.68, 0.82], [-0.02, 0.94], [-0.28, 0.38], [-0.90, 0.70], [-0.66, 0.02]]
+    shape_7: [[-0.86, -0.88], [-0.12, -0.72], [0.38, -0.96], [0.92, -0.36], [0.48, 0.16], [0.90, 0.72], [0.18, 0.84], [-0.30, 0.42], [-0.88, 0.92], [-0.72, 0.18], [-0.98, -0.10]]
+    shape_8: [[-0.94, -0.56], [-0.42, -0.94], [0.16, -0.54], [0.76, -0.90], [0.92, -0.20], [0.40, 0.08], [0.82, 0.62], [0.18, 0.96], [-0.44, 0.58], [-0.90, 0.82], [-0.62, 0.06]]
+  key_list: [space, f, j]
+  seed_mode: same_within_sub
+  overall_seed: 88088
+  response_mode: keyboard
+  input_mode: keyboard
+  hide_cursor: true
+  phase_order: [instruction, ready, pre_pair_blank, prime_fixation, prime_response, inter_display_blank, probe_fixation, probe_response, block_break, good_bye]
+
+timing:
+  ready_blank_duration: 1.1
+  fixation_duration: 0.5
+  inter_display_duration: 0.1
+  response_timeout: 5.0
+
+stimuli:
+  instruction_general:
+    type: text
+    font: SimHei
+    text: |
+      负启动任务
+
+      每个画面左侧有一个绿色目标轮廓，可能叠加一个需要忽略的红色轮廓；右侧是白色参照轮廓。
+      若绿色轮廓与白色轮廓相同，请按 J；不同请按 F。
+      请尽快且准确作答。每对画面开始前由你按空格键准备。
+
+      按空格键开始练习。
+    color: white
+    height: 0.62
+    wrapWidth: 23
+    pos: [0, 0]
+  ready_prompt: {type: text, font: SimHei, text: "准备好了吗？\n\n按空格键开始", color: "#60A5FA", height: 0.72, wrapWidth: 18, pos: [0, 0]}
+  block_start: {type: text, font: SimHei, text: "第 {block_number} / {total_blocks} 组\n\n按空格键开始", color: white, height: 0.72, wrapWidth: 18, pos: [0, 0]}
+  block_break: {type: text, font: SimHei, text: "第 {block_number} 组完成\n\n本组正确率：{accuracy:.1%}\n\n请休息，准备好后按空格键继续。", color: white, height: 0.68, wrapWidth: 21, pos: [0, 0]}
+  good_bye: {type: text, font: SimHei, text: "任务完成\n\n总体正确率：{accuracy:.1%}\n负启动效应：{negative_priming_text}\n\n按空格键退出。", color: white, height: 0.68, wrapWidth: 21, pos: [0, 0]}
+  fixation: {type: text, font: SimHei, text: "+", color: white, height: 0.72, pos: [0, 0]}
+  blank_screen: {type: rect, width: 30, height: 20, fillColor: black, lineColor: black, pos: [0, 0]}
+
+triggers:
+  map:
+    experiment_start: 1
+    block_start: 2
+    block_end: 3
+    ready: 10
+    pre_pair_blank: 11
+    prime_fixation: 20
+    prime_no_distractor: 30
+    prime_control: 31
+    prime_negative_priming: 32
+    response_different: 33
+    response_same: 34
+    prime_timeout: 35
+    inter_display_blank: 40
+    probe_fixation: 50
+    probe_no_distractor: 60
+    probe_control: 61
+    probe_negative_priming: 62
+    probe_response_different: 63
+    probe_response_same: 64
+    probe_timeout: 65
+    experiment_end: 99
+  driver: {type: serial_url, url: "loop://", baudrate: 115200, timeout: 1}
+  policy: {strict: false}
+  timing: {post_delay_s: 0.001}

@@ -1,0 +1,25 @@
+id: H000088
+slug: negative-priming
+title: Negative Priming
+variant: html
+acquisition: behavior
+maturity: draft
+version:
+  release_tag: v0.1.0
+language: Chinese
+cognitive_domain:
+  - attention
+  - inhibitory-control
+  - negative-priming
+contracts:
+  taps: v0.2.0
+runtime:
+  profile: web
+short_description: Browser companion for T000088, preserving abstract-shape prime-probe identity negative priming and same/different keyboard responses.
+evidence:
+  - https://doi.org/10.1037/0096-3445.133.1.101
+  - https://doi.org/10.1037/0096-1523.23.3.632
+  - https://doi.org/10.3758/BF03210958
+  - https://doi.org/10.3758/s13423-015-0841-4
+maintainer:
+  - TaskBeacon
