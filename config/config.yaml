@@ -107,6 +107,6 @@ triggers:
     probe_response_same: 64
     probe_timeout: 65
     experiment_end: 99
-  driver: {type: serial_url, url: "loop://", baudrate: 115200, timeout: 1}
+  driver: {type: mock, print_codes: true}
   policy: {strict: false}
   timing: {post_delay_s: 0.001}
